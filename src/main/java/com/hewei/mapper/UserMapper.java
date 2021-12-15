@@ -14,16 +14,9 @@ import java.util.List;
 public interface UserMapper extends BaseMapper<SysUser> {
 
     /**
-     * 新增选手
-     *
-     * @param user
-     * @return
-     */
-    int insertUser(SysUser user);
-
-    /**
      * 批量插入
      * @param userList
      */
-    void insertUsers(@Param("") List<SysUser> userList);
+    void insertUsers(@Param("userList") List<SysUser> userList);
+
 }

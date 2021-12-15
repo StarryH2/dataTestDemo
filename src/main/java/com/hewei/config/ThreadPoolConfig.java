@@ -17,7 +17,7 @@ import java.util.concurrent.TimeUnit;
  */
 @Component
 @Configuration
-@ConfigurationProperties(prefix = "threadpool")
+//@ConfigurationProperties(prefix = "threadpool")
 @Lazy
 public class ThreadPoolConfig {
 
