@@ -23,4 +23,6 @@ public interface UserService {
      */
     int threadAdd();
 
+    void exeTransactionalTest();
+
 }

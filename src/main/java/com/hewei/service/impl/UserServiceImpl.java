@@ -59,6 +59,34 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, SysUser> implements
         return 0;
     }
 
+    @Override
+    @Transactional
+    public void exeTransactionalTest() {
+        exe();
+    }
+    public void exe(){
+        insertUser();
+        System.out.println("===========");
+    }
+
+    public Integer insertUser(){
+        SysUser user = new SysUser();
+        String nickName = RandomPersonInfoUtil.getRandomChineseName();
+        user.setNickName(nickName);//姓名
+        user.setIdCard(IdCardUtil.getIdCard());
+        user.setUserName(PinYinUtil.getPingYin(nickName));//登录账号
+        user.setPassword("123456");//登录账号
+        user.setPhone(RandomPersonInfoUtil.getRandomTelephoneNumber());//手机号
+        user.setEmail(RandomPersonInfoUtil.getEmail());//邮箱
+        user.setAddress(RandomPersonInfoUtil.getRandomLocation());//地址
+        user.setCreateBy(0L);
+        user.setCreateTime(DateUtil.now());
+
+        int insertCount = userMapper.insert(user);
+        return insertCount;
+    }
+
+
     @Autowired
     private TransactionDefinition t;
 
